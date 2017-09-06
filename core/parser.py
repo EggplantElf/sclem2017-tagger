@@ -141,14 +141,6 @@ class Parser(object):
                     % (step, run_acc_y*100, run_acc_z*100, run_acc_w*100, loss),
             sys.stdout.flush()
 
-            # train auxiliary tagger for lstm parser
-            if self.args.lstm_parser and self.args.aux_tagger:
-                if step and step % int(1 / self.args.aux_ratio) == 0:
-                    loss, acc = self.model.train_taggers(sidx_b)
-                    print 'step: %d acc_y: %.2f acc_z: %.2f acc_w: %.2f loss: %.6f \r' \
-                            % (step, run_acc_y*100, run_acc_z*100, acc*100, loss),
-                    sys.stdout.flush()
-
             if step and step % every == 0:
                 if self.manager.dev_sents:
                     print
