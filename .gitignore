@@ -1,0 +1,11 @@
+*.pyc
+*.log
+*.txt
+*.out
+*.conll*
+*.ipynb
+stash/
+scripts/
+tmp/
+data
+models
